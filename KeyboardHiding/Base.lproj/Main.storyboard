@@ -52,6 +52,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="Sda-QG-wkL"/>
                                 </connections>
