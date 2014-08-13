@@ -395,6 +395,7 @@
 				27FF1D3C1999311500ED8F5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		27FF1D3D1999311500ED8F5A /* Build configuration list for PBXNativeTarget "KeyboardHidingTests" */ = {
 			isa = XCConfigurationList;
@@ -403,6 +404,7 @@
 				27FF1D3F1999311500ED8F5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
