@@ -10,15 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    //MARK: Storyboard
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var signin: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -35,22 +34,21 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
 
-    //MARK: Background touched, keyboard dismisses
+    // Not currently functioning properly.
     override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
         self.scrollView.endEditing(true)
         println("scrollView was touched.")
         
     }
-    
-    //Mark: Keyboard Registration
+
+    //MARK: Keyboard Avoidance
     func registerForKeyboardNotifications() -> Void {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardDidShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardWillShowNotification, object: nil)
-        println("Registering!")
-        
+
     }
     
     func deregisterFromKeyboardNotifications() -> Void {
@@ -61,7 +59,7 @@ class ViewController: UIViewController {
     }
     
     func keyboardWasShown(notification: NSNotification) {
-        var info: Dictionary = notification.userInfo
+        var info: Dictionary = notification.userInfo!
         var keyboardSize: CGSize = (info[UIKeyboardFrameBeginUserInfoKey]?.CGRectValue().size)!
         var buttonOrigin: CGPoint = self.signin.frame.origin;
         var buttonHeight: CGFloat = self.signin.frame.size.height;
