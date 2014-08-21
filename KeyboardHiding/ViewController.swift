@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         visibleRect.size.height -= keyboardSize.height
         
         if (!CGRectContainsPoint(visibleRect, buttonOrigin)) {
-            var scrollPoint: CGPoint = CGPointMake(0.0, buttonOrigin.y - visibleRect.size.height + buttonHeight)
+            var scrollPoint: CGPoint = CGPointMake(0.0, buttonOrigin.y - visibleRect.size.height + buttonHeight + 4)
             self.scrollView.setContentOffset(scrollPoint, animated: true)
             
         }
