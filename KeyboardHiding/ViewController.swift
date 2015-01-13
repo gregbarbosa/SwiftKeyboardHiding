@@ -18,6 +18,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "hideKeyboard")
+        
+        // prevents the scroll view from swallowing up the touch event of child buttons
+        tapGesture.cancelsTouchesInView = false
+        
+        scrollView.addGestureRecognizer(tapGesture)
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -37,12 +45,14 @@ class ViewController: UIViewController {
         
     }
 
-    // Not currently functioning properly.
+    /*  Touches can't be used on a ScrollView, instead trigger gestures.
+    
     override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
         self.scrollView.endEditing(true)
         println("scrollView was touched.")
         
     }
+    */
 
     //MARK: Keyboard Avoidance
     func registerForKeyboardNotifications() -> Void {
@@ -73,9 +83,19 @@ class ViewController: UIViewController {
         }
     }
     
+    /* Function was replaced with hideKeyboard().
+    
     func keyboardWillBeHidden(notification: NSNotification) {
         self.scrollView.setContentOffset(CGPointZero, animated: true)
         
+    }
+    
+    */
+    
+    func hideKeyboard() {
+        username.resignFirstResponder()   //FirstResponder's must be resigned for hiding keyboard.
+        password.resignFirstResponder()
+        self.scrollView.setContentOffset(CGPointZero, animated: true)
     }
 
 }
